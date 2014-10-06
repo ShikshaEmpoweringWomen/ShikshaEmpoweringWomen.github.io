@@ -1,262 +1,39 @@
-<!DOCTYPE HTML>
-<!--
-	Helios 1.5 by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Project Shiksha</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" type="text/css" />
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.dropotron.min.js"></script>
-	<link rel="stylesheet" href="css/style.css" />
-        <script>
-        
-        (function($){
-    "use strict";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Project Shiksha</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    var bindToClass      = 'carousel',
-        containerWidth   = 0,
-        scrollWidth      = 0,
-        posFromLeft      = 0,    // Stripe position from the left of the screen
-        stripePos        = 0,    // When relative mouse position inside the thumbs stripe
-        animated         = null,
-        $indicator, $carousel, el, $el, ratio, scrollPos, nextMore, prevMore, pos, padding;
+	<!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
+	<!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
+	<!--script src="js/less-1.3.3.min.js"></script-->
+	<!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+	
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
 
-    // calculate the thumbs container width
-    function calc(e){
-        $el = $(this).find(' > .wrap');
-        el  = $el[0];
-        $carousel = $el.parent();
-        $indicator = $el.prev('.indicator');
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+  <![endif]-->
 
-        nextMore = prevMore  = false; // reset
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="img/favicon.png">
+  
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+</head>
 
-        containerWidth       = el.clientWidth;
-        scrollWidth          = el.scrollWidth; // the "<ul>"" width
-        padding              = 0.2 * containerWidth; // padding in percentage of the area which the mouse movement affects
-        posFromLeft          = $el.offset().left;
-        stripePos            = e.pageX - padding - posFromLeft;
-        pos                  = stripePos / (containerWidth - padding*2);
-        scrollPos            = (scrollWidth - containerWidth ) * pos;
-        
-        if( scrollPos < 0 )
-          scrollPos = 0;
-        if( scrollPos > (scrollWidth - containerWidth) )
-          scrollPos = scrollWidth - containerWidth;
-      
-        $el.animate({scrollLeft:scrollPos}, 200, 'swing');
-        
-        if( $indicator.length )
-            $indicator.css({
-                width: (containerWidth / scrollWidth) * 100 + '%',
-                left: (scrollPos / scrollWidth ) * 100 + '%'
-            });
-
-        clearTimeout(animated);
-        animated = setTimeout(function(){
-            animated = null;
-        }, 200);
-
-        return this;
-    }
-
-    // move the stripe left or right according to mouse position
-    function move(e){
-        // don't move anything until inital movement on 'mouseenter' has finished
-        if( animated ) return;
-
-        ratio     = scrollWidth / containerWidth;
-        stripePos = e.pageX - padding - posFromLeft; // the mouse X position, "normalized" to the carousel position
-
-        if( stripePos < 0)
-            stripePos = 0;
-
-        pos = stripePos / (containerWidth - padding*2); // calculated position between 0 to 1
-        // calculate the percentage of the mouse position within the carousel
-        scrollPos = (scrollWidth - containerWidth ) * pos;   
-
-        el.scrollLeft = scrollPos;
-        if( $indicator[0] && scrollPos < (scrollWidth - containerWidth) )
-          $indicator[0].style.left = (scrollPos / scrollWidth ) * 100 + '%';
-
-        // check if element has reached an edge
-        prevMore = el.scrollLeft > 0;
-        nextMore = el.scrollLeft < (scrollWidth - containerWidth);
-
-        $carousel[prevMore ? "addClass" : "removeClass"]('left');
-        $carousel[nextMore ? "addClass" : "removeClass"]('right');
-    }
-
-    $.fn.carousel = function(options){
-        $(document)
-            .on('mouseenter.carousel', '.' + bindToClass, calc)
-            .on('mousemove.carousel', '.' + bindToClass, move);
-    };
-
-    // automatic binding to all elements which have the class that is assigned to "bindToClass"
-    $.fn.carousel();
-
-})(jQuery);
-
-        </script>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
-	</head>
-	<body class="homepage">
-       
-<!-- Carousel -->
-        <h2 style="text-align:center;"> <strong> Project Shiksha </strong></h2>
-        <div class="carousel right">
-  <div class="indicator"></div>
-  <div class="wrap">
-    <ul>
-         <li><img src="/images/_MG_7338.jpg"/></li>
-      <li><img src="/images/_MG_7053.jpg"/></li>
-     
-      <li><img src="/images/_MG_7362.jpg"/></li>
-      <li><img src="/images/_MG_7431.jpg"/></li>
-      <li><img src="/images/_MG_7432.jpg"/></li>
-      <li><img src="/images/_MG_7433.jpg"/></li>
-      <li><img src="/images/_MG_7435.jpg"/></li>
-        <li><img src="/images/_MG_7441.jpg"/></li>
-        <li><img src="/images/_MG_7448.jpg"/></li>
-        <li><img src="/images/_MG_7498.jpg"/></li>
-        <li><img src="/images/_MG_7501.jpg"/></li>
-        <li><img src="/images/_MG_7511.jpg"/></li>
-        <li><img src="/images/_MG_7532.jpg"/></li>
-    </ul>
-  </div>
-</div>
-			<!--<div id="carousel">
-				<figure id="spinner">
-
-
-						
-                        <img src="images/_MG_7053.jpg" alt="" />
-				
-                    
-                    <img src="images/_MG_7338.jpg" alt="" />
-                        
-						<img src="images/_MG_7362.jpg" alt="" />
-						
-						<img src="images/_MG_7431.jpg" alt="" />
-						
-						<img src="images/_MG_7432.jpg" alt="" />
-						
-						<img src="images/_MG_7435.jpg" alt="" />
-						
-						<img src="images/_MG_7448.jpg" alt="" />
-						<img src="images/_MG_7498.jpg" alt="" />
-						
-                       
-                         
-
-				</figure>
-			</div>
-        <span style=float:left class=ss-icon onclick="galleryspin('-')">&lt;</span>
-<span style=float:right class=ss-icon onclick="galleryspin('')">&gt;</span>-->
-		<!-- Header -->
-		<!--	<div id="header">
-						
-				<!-- Inner -->
-				<!--	<div class="inner">
-						<header>
-							<h1><a href="#" id="logo">Helios</a></h1>
-							<hr />
-							<span class="byline">Another fine freebie by HTML5 UP</span>
-						</header>
-						<footer>
-							<a href="#banner" class="button circled scrolly">Start</a>
-						</footer>
-					</div>
-			
-				<!-- Nav -->
-					<!--<nav id="nav">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li>
-								<span>Dropdown</span>
-								<ul>
-									<li><a href="#">Lorem ipsum dolor</a></li>
-									<li><a href="#">Magna phasellus</a></li>
-									<li><a href="#">Etiam dolore nisl</a></li>
-									<li>
-										<span>And a submenu &hellip;</span>
-										<ul>
-											<li><a href="#">Lorem ipsum dolor</a></li>
-											<li><a href="#">Phasellus consequat</a></li>
-											<li><a href="#">Magna phasellus</a></li>
-											<li><a href="#">Etiam dolore nisl</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Veroeros feugiat</a></li>
-								</ul>
-							</li>
-							<li><a href="left-sidebar.html">Left Sidebar</a></li>
-							<li><a href="right-sidebar.html">Right Sidebar</a></li>
-							<li><a href="no-sidebar.html">No Sidebar</a></li>
-						</ul>
-					</nav>
--->
-			</div>
-			
-		<!-- Banner -->
-			<div id="banner">
-				<h2> <strong> About Us </strong></h2>
-				<span class="byline">
-					Project SHIKSHA ‘empowering women’ stands to remove the myths associated with the women and aspires to provide them means and ways to protect themselves from all forms of wrongdoing and sidelining. Education is the cardinal and foremost tool by which women in underdeveloped areas can be empowered and taught to live life independently with respect. <br>
-
-Women have become an object of endurance in this era for they are forced to bear the wrath of ruthless, heinous acts that surround them. Every year contrary to the booming economic development across the globe, the condition of women is simply deteriorating that too at an unpleasant rate. Project SHIKSHA ‘empowering women’ was started with the aim to bring change in the life of women by teaching them and motivating them for better a future. For ages they have been considered as just the backbone of a family, now it’s time that they hold their heads high and embrace the world having plenty of opportunities for their empowerment. <br> 
-
-Today, even the World Bank has acknowledged that there is no investment more effective for achieving overall development goals than educating girls.
-
-				</span>
-			</div>
-
-<div class="mission">
-    
-    <h2> <strong> Our Mission </strong></h2>
-				<span class="byline">
-    Our mission is to reach out to as many women in rural areas as possible to educated them and to motivate them and in turn help them to become financially independent.
-    </span>
-    </div>
-    <div class="vision">
-    
-    <h2> <strong> Our Vision </strong></h2>
-				<span class="byline">
-                
-    To work for uplifting the status of women in the society.<br>
-Create employment for women in rural areas to make them financially independent. <br>
-Create awareness about social and health issues related to women.
-
-    </span>
-    </div>
-    <div class="journey">
-     <h2 style="text-align:center;"> <strong> Our Journey So Far.. </strong></h2>
-				
-   <h3>5th June, 2014</h3>
-        <span class="byline"> It was time that we started materialising our brainchild. The first step was to convince the parents of all the girls in our target villages. We decided to visit villages in Farrukhabad district of Uttar Pradesh. Our main aim was to make them realise the importance of education and how it can drastically affect the lives of all the girls we intended to educate. </span>
-
-<h3>1st July,2014</h3>
-       <span class="byline">We started our classroom programme with two volunteers- Jenya Krivlop from Ukraine and Ildar Muzafraov from Moscow, Russia. Our main focus was on personality development and working on English speaking and writing skills of the girls. In the first class, we managed to get only six girls. But within a week, the count increased to 107. The girls were generally between 6-18 years of age. </span>
-
-<h3>16th July,2014</h3> 
-        <span class="byline">We organized a motivational seminar. In accordance with our expectations, 145 girls attended the seminar. We guided the girls and motivated them for a better future. We told them about the opportunities that the world holds and encouraged them to participate more and more in the society. 
-</span>
-<h3>23rd July,2014</h3>
-        <span class="byline"> We organized a card-making and pot making competition. This event saw a participation of 68 girls. We then organized a cultural exchange seminar which had a series of competitions including singing, dancing, fashion show, etc. A total of 43 girls participated in the event and Aranza Guadarrama from Mexico was our Chief Guest. Everybody demonstrated their talents including our volunteers Jenya Krivlop and Ildar Muzafraov.</span>
-
-    </span>
-    </div>
-
-		<!-- Footer -->
-			<div id="footer">
-				<div id="fb-root"></div>
+<body>
+    <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -264,22 +41,195 @@ Create awareness about social and health issues related to women.
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-								
-<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-						
-							<!-- Copyright -->
-								<!--<div class="copyright">
-									<ul class="menu">
-										<li>&copy; Untitled. All rights reserved.</li>
-										<li>Design: <a href="http://html5up.net/">HTML5 UP</a></li>
-									</ul>
-								</div>
-							-->
+<div class="container">
+	<div class="row clearfix" id="home">
+    
+        <div class="col-md-3 make">
+        dfjsdflkdjsl
+        </div>
+            
+     <div class="col-md-3 join">
+        dfjsdflkdjsl
+        </div>
+          
+        
+        <div class="col-md-3">
+        dfjsdflkdjsl
+        </div>
+           
+        <div class="row clearfix" style="float:right; color:#fefefe">
+        <div class="col-md-3">
+        dfjsdflkdjsl
+        </div>
+            </div>
+        <div class="col-md-8 col-md-offset-5 column">
+			<div class="carousel slide" id="carousel-829357">
+				<ol class="carousel-indicators">
+					<li class="active" data-slide-to="0" data-target="#carousel-829357">
+					</li>
+					<li data-slide-to="1" data-target="#carousel-829357">
+					</li>
+					<li data-slide-to="2" data-target="#carousel-829357">
+					</li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="item active">
+						<img alt="" src="img/_MG_7053.jpg">
+						<div class="carousel-caption">
 						</div>
-					
 					</div>
+					<div class="item">
+						<img alt="" src="img/_MG_7338.jpg">
+						<div class="carousel-caption">
+						</div>
+					</div>
+					<div class="item">
+						<img alt="" src="img/_MG_7362.jpg">
+						<div class="carousel-caption">
+						</div>
+					</div>
+				</div> <a class="left carousel-control" href="#carousel-829357" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-829357" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+			</div>
+			<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					  <a class="navbar-brand" href="#">Brand</a>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+										
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active">
+							<a href="#home">Home</a>
+						</li>
+                         <li>
+							<a href="#aboutus">About US</a>
+						</li>
+                         <li>
+							<a href="#MnV">Mission & Vission</a>
+						</li>
+                        
+                        <li>
+							<a href="#contactus">Contact</a>
+						</li>                     
+						
+					</ul>
+				</div>
+				
+			</nav>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column about" id="aboutus">
+			<h1 class="text-center text-muted">
+				About Us
+			</h1>
+			<p class="text-center ">
+				Project SHIKSHA ‘empowering women’ stands to remove the myths associated with the women and aspires to provide them means and ways to protect themselves from all forms of wrongdoing and sidelining. Education is the cardinal and foremost tool by which women in underdeveloped areas can be empowered and taught to live life independently with respect. <br>
+
+Women have become an object of endurance in this era for they are forced to bear the wrath of ruthless, heinous acts that surround them. Every year contrary to the booming economic development across the globe, the condition of women is simply deteriorating that too at an unpleasant rate. Project SHIKSHA ‘empowering women’ was started with the aim to bring change in the life of women by teaching them and motivating them for better a future. For ages they have been considered as just the backbone of a family, now it’s time that they hold their heads high and embrace the world having plenty of opportunities for their empowerment. <br> 
+
+Today, even the World Bank has acknowledged that there is no investment more effective for achieving overall development goals than educating girls.
+			</p>
+		</div>
+	</div>
+	<div class="row clearfix pad" id="MnV">
+		<div class="col-md-3 column">
+			<h1 class="text-center text-muted " >
+				Our Mission
+            </h1></div>
+        
+			<p class="col-md-8 text-center lead">
+<img src="img/left.png">				 Our mission is to reach out to as many women in rural areas as possible to educated them and to motivate them and in turn help them to become financially independent.
+<img src="img/right.png">			</p>
+		
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-3 column " style="float:right">
+			<h1 class="text-center text-muted" >
+				Our Vision
+			</h1>
+        </div>
+			<p class="col-md-8 text-center lead" style="float:left;">
+				<img src="img/left.png">To work for uplifting the status of women in the society.<br>
+Create employment for women in rural areas to make them financially independent. <br>
+Create awareness about social and health issues related to women.<img src="img/right.png">
+			</p>
+		
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<h1 class="text-center text-muted"  >
+				Our Journey
+			</h1>
+            <div class="col-md-3 column"  style="background-color:#123456;">
+			<h3>
+				5th June, 2014
+			</h3>
+			
+				<p>
+					It was time that we started materialising our brainchild. The first step was to convince the parents of all the girls in our target villages. We decided to visit villages in Farrukhabad district of Uttar Pradesh. Our main aim was to make them realise the importance of education and how it can remarkably affect the lives of all the girls we intended to educate.
+				</p> 
+			
+                </div>
+            <div class="col-md-3 column" style="background-color:#125d46;">
+			<h3>
+				1st July,2014
+			</h3>
+				<p>
+					We started our classroom programme with two volunteers- Jenya Krivlop from Ukraine and Ildar Muzafraov from Moscow, Russia. Our main focus was on personality development and working on English speaking and writing skills of the girls. In the first class, we managed to get only six girls. But within a week, the count increased to 107. The girls were generally between 6-18 years of age.
+				</p> 
+
+                </div>
+            <div class="col-md-3 column"  style="background-color:#1ac456;">
+			<h3>
+				16th July,2014
+			</h3>
+			
+				<p>
+					We organized a motivational seminar. In accordance with our expectations, 145 girls attended the seminar. We guided the girls and motivated them for a better future. We told them about the opportunities that the world holds and encouraged them to participate more and more in the society
+				</p>
+			
+            </div>
+            <div class="col-md-3 column"  style="background-color:#1ef546;">
+			<h3>
+				23rd July,2014
+			</h3>
+			
+				<p>
+					We organized a card-making and pot making competition. This event saw a participation of 68 girls. We then organized a cultural exchange seminar which had a series of competitions including singing, dancing, fashion show, etc. A total of 43 girls participated in the event and Aranza Guadarrama from Mexico was our Chief Guest. Everybody demonstrated their talents including our volunteers Jenya Krivlop and Ildar Muzafraov.
+				</p> 
+		
+                </div>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<h1 class="text-center text-muted">
+				Founders
+			</h1>
+			<div class="row clearfix founder"  >
+				<div class="col-md-6 column">
+					<img alt="140x140" src="img/rishit.jpg" class="img-circle img-responsive text-center">
+                   
+					<p>
+						Rishit Yadav, a third year student of Business Economics in College of Vocational Studies. He had his primary education in village in  Farrukhabad, Uttar Pradesh. He is in entrepreneur in the field of girl child education for the past three years and continues to work on the same with firm determination and hard work. Believing in having a positive attitude towards things no matter what the circumstances, he aspires to expand his brainchild- Project Shiksha and educate as many girls as possible
+					</p>
+				</div>
+				<div class="col-md-6 column">
+					<img alt="140x140" src="" class="img-circle">
+					<p>
+						Prateek Prashar, is pursuing Bachelors in Business Economics from  Delhi University. He doesn’t come from a family of entrepreneurs: but now learning from scratch and working out social entrepreneurial challenges guerilla style. He loves to read, mostly books on theology and history and loves to work in the field. He believes education and motivation are two most important weapons to empower women.
+					</p>
 				</div>
 			</div>
-
-	</body>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column contact" id="contactus">
+            <h1>Project Shiksha</h1>
+            <div class="fb-share-button" data-href="https://www.facebook.com/pages/Project-Shiksha-empowering-women/1490234171211845" data-width="250px"></div>
+		</div>
+	</div>
+</div>
+</body>
 </html>
