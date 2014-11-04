@@ -2,7 +2,7 @@ body{
 background-color: #2c2c2c;
 }
 *{
-transition: 2s ease;
+transition: 1s ease;
 }
 .carousel-caption {
     margin-top: 1%;
@@ -15,16 +15,13 @@ transition: 2s ease;
     padding-bottom: 15px;
     
 }
-
-
-
 .about {
     height: 600px;
     width: 100%;
     opacity: 0.8;
     z-index: 5;
-   background-image: url(../img/ba.jpg);
     padding-top: 14%;
+  
     
     
 }
@@ -64,21 +61,17 @@ transition: 2s ease;
     padding-bottom: 0px;
 }
 
-.founder {
-background-image: url(../img/download.jpg);
-    
-}
-
 .make {
-    height:33.3%;
-    background-color: #123456;
+    height: auto;
+    background-color: #167456;
     float:left; 
     z-index: 4;
     opacity: 0.8;
 }
 
 .join {
-    height:33.3%;
+    margin-top: 5%;
+    height: 250px;
     background-color: #123456;
     float:left;
 }
@@ -89,7 +82,83 @@ margin-top: 3%;
 
 .contact {
     z-index: 4;
-    background-color:  #7e7e7e;
     height: 150px;
+    background-image: url(../img/school.png);
+}
+
+.better {
+    margin-top: 5%;
+    height: 250px;
+    background-color: #123336;
+    float:left;
+
+}
+
+
+
+
+#fl {
+    float: right;
+}
+
+#home {
+ margin-top: 4.5%;   
+}
+
+
+
+.june {
+    height: 310px;
+    background-color: #D095AD;
+
+}
+
+.july {
+     height: 310px;
+    background-color: #FEFC3B;
+
+}
+
+.july1 {
+    height: 310px;
+    background: #ab86b9; /* Old browsers */
+
+
+}
+
+.july2 {
+    height: 310px;
+   background-color: #FB9FB1;
+
+}
+
+body {
+    background-image: url(../img/footer_lodyas.png);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+    font-family: 'Ubuntu' , sans-serif;
+    font-weight: 500;
+    font-style: italic;
+color: #fefefd;
+}
+h3 {
+    font-family: 'Ubuntu' , sans-serif;
+    font-weight: 400;
+    font-style: italic;
+color: #fefefd;
+}
+p {
+font-family: 'Ubuntu' , sans-serif;
+    font-weight: 400;
+    color: #fefefd;
+    font-size: 20px;
     
 }
+li{
+font-family: 'Ubuntu' , sans-serif;
+    font-weight: 400;
+}
+
+

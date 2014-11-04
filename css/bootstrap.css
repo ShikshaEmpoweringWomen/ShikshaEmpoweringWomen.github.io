@@ -66,6 +66,15 @@ h1 {
   margin: 0.67em 0;
   font-size: 2em;
 }
+big-fonts{
+font-family: 'Ubuntu' , sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+sm-fonts{
+font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+}
 
 abbr[title] {
   border-bottom: 1px dotted;
